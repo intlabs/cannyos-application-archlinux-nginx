@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# CannyOS cannyos-application-archlinux-gtk3-gedit container build script
+# CannyOS cannyos-application-archlinux-nginx container build script
 #
-# https://github.com/intlabs/cannyos-application-archlinux-gtk3-gedit
+# https://github.com/intlabs/cannyos-application-archlinux-nginx
 #
 # Copyright 2014 Pete Birley
 #
@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 clear
-curl https://raw.githubusercontent.com/intlabs/cannyos-application-archlinux-gtk3-gedit/master/CannyOS/CannyOS.splash
+curl https://raw.githubusercontent.com/intlabs/cannyos-application-archlinux-nginx/master/CannyOS/CannyOS.splash
 #     *****************************************************
 #     *                                                   *
 #     *        _____                    ____  ____        *
@@ -37,7 +37,7 @@ echo "*****************************************************"
 echo ""
 
 # Build base container image
-sudo docker build -t="intlabs/cannyos-application-archlinux-gtk3-gedit" github.com/intlabs/cannyos-application-archlinux-gtk3-gedit
+sudo docker build -t="intlabs/cannyos-application-archlinux-nginx" github.com/intlabs/cannyos-application-archlinux-nginx
 
 echo ""
 echo "*****************************************************"
@@ -48,18 +48,18 @@ echo "*****************************************************"
 echo ""
 
 # Make shared directory on host
-sudo mkdir -p "/CannyOS/build/cannyos-application-archlinux-gtk3-gedit"
+sudo mkdir -p "/CannyOS/build/cannyos-application-archlinux-nginx"
 # Ensure that there it is clear
-sudo rm -r -f "/CannyOS/build/cannyos-application-archlinux-gtk3-gedit/*"
+sudo rm -r -f "/CannyOS/build/cannyos-application-archlinux-nginx/*"
 
 # Remove any existing containers
-sudo docker stop cannyos-application-archlinux-gtk3-gedit
+sudo docker stop cannyos-application-archlinux-nginx
 
 # Launch built base container image
 sudo docker run -i -t -d \
  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" \
- --volume "/CannyOS/build/cannyos-application-archlinux-gtk3-gedit":"/CannyOS/Host" \
- --name "cannyos-application-archlinux-gtk3-gedit" \
+ --volume "/CannyOS/build/cannyos-application-archlinux-nginx":"/CannyOS/Host" \
+ --name "cannyos-application-archlinux-nginx" \
  --user "root" \
  -p 80 \
- intlabs/cannyos-application-archlinux-gtk3-gedit 
+ intlabs/cannyos-application-archlinux-nginx 

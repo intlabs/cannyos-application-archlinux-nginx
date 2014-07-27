@@ -1,7 +1,7 @@
-## CannyOS ArchLinux with GTK3
+## CannyOS ArchLinux with NGINX
 
 
-This repository contains the *Dockerfile* and *associated files* for setting up a container with ArchLinux and GTK3 for CannyOS
+This repository contains the *Dockerfile* and *associated files* for setting up a container with ArchLinux and nginx for CannyOS
 
 ### Dependencies
 
@@ -19,14 +19,14 @@ This repository contains the *Dockerfile* and *associated files* for setting up 
 2. You can then build the container set from the via entering:
 
 	Manual building can be done with the following:
-	`sudo docker build -t="intlabs/cannyos-application-archlinux-gtk3-gedit" github.com/intlabs/cannyos-application-archlinux-gtk3-gedit`
+	`sudo docker build -t="intlabs/cannyos-application-archlinux-nginx" github.com/intlabs/cannyos-application-archlinux-nginx`
 
 	Two stage building should not be required but is avaliblible via:
-	`bash <(curl -s https://raw.githubusercontent.com/intlabs/cannyos-application-archlinux-gtk3-gedit/master/Build.sh)`
+	`bash <(curl -s https://raw.githubusercontent.com/intlabs/cannyos-application-archlinux-nginx/master/Build.sh)`
 
 	
 ### Usage
 
 * this will run and drop you into a session with privileges to run FUSE:
 
-`docker run -i -t -d  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm"  --volume "/CannyOS/build/cannyos-application-archlinux-gtk3-gedit":"/CannyOS/Host"  --name "cannyos-application-archlinux-gtk3-gedit"  --user "root"  -p 80 intlabs/cannyos-application-archlinux-gtk3-gedit`
+`docker run -i -t -d  --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm"  --volume "/CannyOS/build/cannyos-application-archlinux-nginx":"/CannyOS/Host"  --name "cannyos-application-archlinux-nginx"  --user "root"  -p 80 intlabs/cannyos-application-archlinux-nginx`
