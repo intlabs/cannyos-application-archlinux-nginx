@@ -31,7 +31,7 @@ curl https://raw.githubusercontent.com/intlabs/cannyos-application-archlinux-ngi
 #     *                                                   *
 #     *****************************************************
 echo "*                                                   *"
-echo "*         Ubuntu docker container builder           *"
+echo "*         ArchLinux docker container builder        *"
 echo "*                                                   *"
 echo "*****************************************************"
 echo ""
